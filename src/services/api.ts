@@ -19,10 +19,13 @@ class ApiService {
   ): Promise<T> {
     const url = `${this.baseUrl}${endpoint}`;
     
+    const token = localStorage.getItem('meb_access_token');
+    
     const config: RequestInit = {
       ...options,
       headers: {
         'Content-Type': 'application/json',
+        ...(token && { 'Authorization': `Bearer ${token}` }),
         ...options?.headers,
       },
     };

@@ -1,6 +1,9 @@
+import { useAuth } from '../../contexts/AuthContext';
 import './Navbar.css';
 
 const Navbar = () => {
+  const { user, logout } = useAuth();
+
   return (
     <nav className="navbar">
       <div className="navbar-container">
@@ -9,11 +12,28 @@ const Navbar = () => {
         </div>
         
         <div className="navbar-menu">
-          {/* Menu items serão adicionados aqui posteriormente */}
         </div>
         
         <div className="navbar-actions">
-          {/* Botões de ação serão adicionados aqui posteriormente */}
+          {user && (
+            <>
+              <div className="user-info">
+                <div className="user-avatar">
+                  {user.profileImage ? (
+                    <img src={user.profileImage} alt={user.username} />
+                  ) : (
+                    <span className="avatar-placeholder">
+                      {user.username.charAt(0).toUpperCase()}
+                    </span>
+                  )}
+                </div>
+                <span className="user-name">{user.username}</span>
+              </div>
+              <button onClick={logout} className="logout-button">
+                Sair
+              </button>
+            </>
+          )}
         </div>
       </div>
     </nav>
