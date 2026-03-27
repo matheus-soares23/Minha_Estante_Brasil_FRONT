@@ -1,0 +1,37 @@
+{
+  "name": "minha_estante_brasil_front",
+  "version": "1.0.0",
+  "description": "frontend da aplicação para listagem de obras nacionais",
+  "keywords": [
+    "minha",
+    "estante",
+    "brasil"
+  ],
+  "homepage": "https://github.com/matheus-soares23/Minha_Estante_Brasil_FRONT#readme",
+  "bugs": {
+    "url": "https://github.com/matheus-soares23/Minha_Estante_Brasil_FRONT/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/matheus-soares23/Minha_Estante_Brasil_FRONT.git"
+  },
+  "license": "ISC",
+  "author": "Matheus Soares",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@vitejs/plugin-react": "^6.0.1",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "vite": "^8.0.3"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "typescript": "^6.0.2"
+  }
+}
