@@ -1,17 +1,33 @@
+import { Link, useLocation } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
 import './Navbar.css';
 
 const Navbar = () => {
   const { user, logout } = useAuth();
+  const location = useLocation();
 
   return (
     <nav className="navbar">
       <div className="navbar-container">
         <div className="navbar-logo">
-          <h1>Minha Estante Brasil</h1>
+          <Link to="/" style={{ textDecoration: 'none', color: 'inherit' }}>
+            <h1>Minha Estante Brasil</h1>
+          </Link>
         </div>
         
         <div className="navbar-menu">
+          <Link 
+            to="/" 
+            className={`navbar-link ${location.pathname === '/' ? 'active' : ''}`}
+          >
+            Explorar Livros
+          </Link>
+          <Link 
+            to="/my-books" 
+            className={`navbar-link ${location.pathname === '/my-books' ? 'active' : ''}`}
+          >
+            Minha Lista
+          </Link>
         </div>
         
         <div className="navbar-actions">
@@ -23,7 +39,7 @@ const Navbar = () => {
                     <img src={user.profileImage} alt={user.username} />
                   ) : (
                     <span className="avatar-placeholder">
-                      {user.username.charAt(0).toUpperCase()}
+                      {user.username?.charAt(0).toUpperCase()}
                     </span>
                   )}
                 </div>

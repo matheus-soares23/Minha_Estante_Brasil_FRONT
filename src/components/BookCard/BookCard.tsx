@@ -1,4 +1,6 @@
+import { useState } from "react";
 import { Book } from '../../types/book';
+import ModalAddBook from '../ModalAddBook';
 import './BookCard.css';
 
 interface BookCardProps {
@@ -6,6 +8,8 @@ interface BookCardProps {
 }
 
 const BookCard = ({ book }: BookCardProps) => {
+  const [openModal, setOpenModal] = useState(false);
+
   return (
     <div className="book-card">
       <div className="book-card-image">
@@ -72,7 +76,18 @@ const BookCard = ({ book }: BookCardProps) => {
               : book.synopsis}
           </p>
         )}
+
+        <button className="add-button" onClick={() => setOpenModal(true)}>
+          + Adicionar à lista
+        </button>
       </div>
+
+      {openModal && (
+        <ModalAddBook
+          book={book}
+          onClose={() => setOpenModal(false)}
+        />
+      )}
     </div>
   );
 };

@@ -1,8 +1,8 @@
-.home {
+.general-list {
   min-height: calc(100vh - var(--navbar-height));
 }
 
-.home-container {
+.general-list-container {
   max-width: 1400px;
   margin: 0 auto;
   padding: 0 2rem;
@@ -155,7 +155,7 @@
 }
 
 @media (max-width: 768px) {
-  .home-container {
+  .general-list-container {
     padding: 0 1rem;
   }
   

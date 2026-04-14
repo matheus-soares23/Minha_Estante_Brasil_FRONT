@@ -185,7 +185,6 @@ const Login = () => {
         </div>
 
         <div className="login-decoration">
-          <div className="book-icon">📚</div>
           <p className="decoration-text">
             Descubra e catalogue os melhores livros da literatura brasileira
           </p>

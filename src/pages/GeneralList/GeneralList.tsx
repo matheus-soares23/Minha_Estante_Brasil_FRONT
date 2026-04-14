@@ -2,9 +2,9 @@ import { useState, useEffect } from 'react';
 import BookCard from '../../components/BookCard';
 import { Book, mapBookFromApi } from '../../types/book';
 import { bookService, BookSortBy, SortOrder } from '../../services/bookService';
-import './Home.css';
+import './GeneralList.css';
 
-const Home = () => {
+const GeneralList = () => {
   const [books, setBooks] = useState<Book[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -74,12 +74,12 @@ const Home = () => {
   }
 
   return (
-    <div className="home">
-      <div className="home-container">
+    <div className="general-list">
+      <div className="general-list-container">
         <section className="hero-section">
-          <h1 className="hero-title">Obras Literárias Brasileiras</h1>
+          <h1 className="hero-title">Sua Lista 100% Brasileira</h1>
           <p className="hero-subtitle">
-            Descubra e catalogue os melhores livros da literatura nacional
+            Descubra e catalogue os melhores livros, quadrinhos e contos da literatura nacional.
           </p>
         </section>
 
@@ -102,4 +102,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default GeneralList;

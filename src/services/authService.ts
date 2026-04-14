@@ -1,4 +1,4 @@
-import { api } from './api';
+import { httpService } from './httpService';
 import { LoginDto, RegisterDto, AuthResponse, User } from '../types/auth';
 
 class AuthService {
@@ -7,14 +7,14 @@ class AuthService {
   private readonly USER_KEY = 'meb_user';
 
   async login(data: LoginDto): Promise<AuthResponse> {
-    const response = await api.post<AuthResponse>(`${this.basePath}/login`, data);
+    const response = await httpService.post<AuthResponse>(`${this.basePath}/login`, data);
     this.setToken(response.accessToken);
     this.setUser(response.user);
     return response;
   }
 
   async register(data: RegisterDto): Promise<AuthResponse> {
-    const response = await api.post<AuthResponse>(`${this.basePath}/register`, data);
+    const response = await httpService.post<AuthResponse>(`${this.basePath}/register`, data);
     this.setToken(response.accessToken);
     this.setUser(response.user);
     return response;

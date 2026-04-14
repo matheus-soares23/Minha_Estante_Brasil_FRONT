@@ -1,8 +1,9 @@
-import { AuthProvider, useAuth } from './contexts/AuthContext';
-import Layout from './components/Layout';
-import Home from './pages/Home';
-import Login from './pages/Login';
-import './styles/global.css';
+import { BrowserRouter } from "react-router-dom";
+import { AuthProvider, useAuth } from "./contexts/AuthContext";
+import Layout from "./components/Layout";
+import Login from "./pages/Login";
+import { AppRoutes } from "./routes/routes";
+import "./styles/global.css";
 
 function AppContent() {
   const { isAuthenticated, isLoading } = useAuth();
@@ -22,16 +23,18 @@ function AppContent() {
 
   return (
     <Layout>
-      <Home />
+      <AppRoutes />
     </Layout>
   );
 }
 
 function App() {
   return (
-    <AuthProvider>
-      <AppContent />
-    </AuthProvider>
+    <BrowserRouter>
+      <AuthProvider>
+        <AppContent />
+      </AuthProvider>
+    </BrowserRouter>
   );
 }
 
